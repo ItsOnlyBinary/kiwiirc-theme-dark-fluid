@@ -25,9 +25,12 @@ kiwi.plugin('theme-dark-fluid', (kiwi) => {
     canvas.style.zIndex = '-100';
     canvas.style.backgroundColor = '#000';
 
+    const Misc = kiwi.require('helpers/Misc');
+    const queryTheme = Misc.queryStringVal('theme');
+
     kiwi.on('theme.change', onThemeChange);
 
-    if (kiwi.state.setting('theme') === 'DarkFluid') {
+    if (queryTheme === 'DarkFluid' || kiwi.state.setting('theme') === 'DarkFluid') {
         kiwi.themes.setTheme('DarkFluid');
     }
 
@@ -86,7 +89,6 @@ kiwi.plugin('theme-dark-fluid', (kiwi) => {
             default:
             }
         }
-
     }
 });
 

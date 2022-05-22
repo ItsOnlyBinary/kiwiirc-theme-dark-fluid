@@ -35,6 +35,9 @@ kiwi.plugin('theme-dark-fluid', (kiwi) => {
     }
 
     function onMessage(event) {
+        if (document.hidden) {
+            return;
+        }
         if (!event.buffer || kiwi.state.getActiveBuffer() !== event.buffer) {
             return;
         }

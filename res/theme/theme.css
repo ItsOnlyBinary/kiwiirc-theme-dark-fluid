@@ -25,7 +25,7 @@
     --comp-statebrowser-network-border: #656565;
     --comp-sidebar-bg: transparent;
     --comp-sidebar-fg: #ababab;
-    --comp-scroller-bg: #424242;
+    --comp-scroller-bg: transparent;
     --comp-scroller-fg: #666;
     --comp-aboutbuffer-bg: rgba(0, 0, 0, 0.03);
     --comp-aboutbuffer-header-bg: var(--brand-primary);
@@ -206,3 +206,63 @@ button.u-button.u-button-primary.u-submit.kiwi-welcome-znc-start {
 .irc-bg-colour-pink { background-color: #f0f; }
 .irc-bg-colour-grey { background-color: #a6a6a6; }
 .irc-bg-colour-light-grey { background-color: #e2e2e2; }
+
+
+/* plugin-emojis */
+.kiwi-emoji-mart,
+.kiwi-emoji-mart .emoji-mart-skin-swatches {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--brand-default-fg);
+}
+
+.kiwi-emoji-mart,
+.kiwi-emoji-mart .emoji-mart-bar,
+.kiwi-emoji-mart .emoji-mart-skin-swatches,
+.kiwi-emoji-mart .emoji-mart-search input {
+    border-color: var(--comp-border);
+}
+
+.kiwi-emoji-mart .emoji-mart-anchor {
+    color: var(--brand-default-fg);
+}
+
+.kiwi-emoji-mart .emoji-mart-category-label h3 {
+    background-color: inherit;
+}
+
+.kiwi-emoji-mart .emoji-mart-skin-swatch-selected::after {
+    background-color: #000;
+}
+
+
+/* plugin-fileuploader */
+.uppy-Root,
+.uppy-Dashboard-note,
+.uppy-DashboardTab-btn,
+.uppy-Dashboard-dropFilesHereHint,
+.uppy-Dashboard-AddFiles-title {
+    color: var(--brand-default-fg);
+}
+
+.uppy-Dashboard-inner,
+.uppy-DashboardContent-bar,
+.uppy-StatusBar,
+.uppy-StatusBar:not([aria-hidden=true]).is-waiting,
+.uppy-StatusBar.is-waiting .uppy-StatusBar-actions {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.uppy-DashboardTab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.uppy-StatusBar,
+.uppy-DashboardContent-bar,
+.uppy-StatusBar:not([aria-hidden=true]).is-waiting,
+[data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles {
+    border-color: var(--comp-border);
+}
+
+.uppy-Dashboard--modal .uppy-Dashboard-inner {
+    border: 1px solid var(--comp-border);
+}

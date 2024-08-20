@@ -233,3 +233,36 @@ button.u-button.u-button-primary.u-submit.kiwi-welcome-znc-start {
 .kiwi-emoji-mart .emoji-mart-skin-swatch-selected::after {
     background-color: #000;
 }
+
+
+/* plugin-fileuploader */
+.uppy-Root,
+.uppy-Dashboard-note,
+.uppy-DashboardTab-btn,
+.uppy-Dashboard-dropFilesHereHint,
+.uppy-Dashboard-AddFiles-title {
+    color: var(--brand-default-fg);
+}
+
+.uppy-Dashboard-inner,
+.uppy-DashboardContent-bar,
+.uppy-StatusBar,
+.uppy-StatusBar:not([aria-hidden=true]).is-waiting,
+.uppy-StatusBar.is-waiting .uppy-StatusBar-actions {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.uppy-DashboardTab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.uppy-StatusBar,
+.uppy-DashboardContent-bar,
+.uppy-StatusBar:not([aria-hidden=true]).is-waiting,
+[data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles {
+    border-color: var(--comp-border);
+}
+
+.uppy-Dashboard--modal .uppy-Dashboard-inner {
+    border: 1px solid var(--comp-border);
+}

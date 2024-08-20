@@ -53,7 +53,7 @@ kiwi.plugin('theme-dark-fluid', (kiwi) => {
 
     function onThemeChange(_theme) {
         const theme = _theme || kiwi.state.setting('theme');
-        if (theme === 'DarkFluid') {
+        if (theme.name === 'DarkFluid') {
             document.body.prepend(canvas);
             glfluid.start(canvas, ourConfig);
             kiwi.on('message.new', onMessage);
@@ -88,6 +88,15 @@ kiwi.plugin('theme-dark-fluid', (kiwi) => {
             case 'BLOOM':
             case 'SUNRAYS':
                 glfluid.updateKeywords();
+                break;
+            case 'ENABLE_MOUSE_MOVE':
+                glfluid.updateMouseMove();
+                break;
+            case 'ENABLE_MESSAGE_SPLATS':
+                kiwi.off('message.new', onMessage);
+                if (newVal) {
+                    kiwi.on('message.new', onMessage);
+                }
                 break;
             default:
             }

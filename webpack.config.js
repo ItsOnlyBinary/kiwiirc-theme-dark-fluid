@@ -1,39 +1,29 @@
-const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const makeSourceMap = process.argv.indexOf('--srcmap') > -1;
+const devConfig = require('./build/configs/dev');
+const prodConfig = require('./build/configs/prod');
 
-module.exports = {
-    mode: 'production',
-    entry: './src/plugin.js',
-    output: {
-        filename: 'theme-dark-fluid.js',
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                use: [{loader: 'exports-loader'}, {loader: 'babel-loader'}],
-                include: [
-                    path.join(__dirname, 'src'),
-                ]
-            },
-        ]
-    },
-    plugins: [
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, './res/theme'),
-                to: 'theme-dark-fluid/theme/',
-                ignore: ['.*']
-            },
-        ])
-    ],
-    devtool: makeSourceMap ? 'source-map' : '',
-    devServer: {
-        filename: 'theme-dark-fluid.js',
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 9000
+module.exports = (env, argv) => {
+    const isDev = env.WEBPACK_SERVE;
+    let config = {
+        mode: isDev ? 'development' : 'production',
+    };
+
+    if (argv.mode) {
+        config.mode = argv.mode;
     }
+
+    if (argv.stats) {
+        config.plugins = [
+            new BundleAnalyzerPlugin(),
+        ];
+    }
+
+    if (isDev) {
+        config = devConfig(env, argv, config);
+    } else {
+        config = prodConfig(env, argv, config);
+    }
+
+    return config;
 };

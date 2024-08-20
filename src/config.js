@@ -3,6 +3,10 @@
 
 let configBase = 'theme_dark_fluid';
 let defaultConfig = {
+    ENABLE_MOUSE_MOVE: false,
+    ENABLE_MESSAGE_SPLATS: true,
+    CONSTANT_SPLATS_FRAMES: -240,
+    CONSTANT_SPLATS_MAX: 1,
     SIM_RESOLUTION: 128,
     DYE_RESOLUTION: 1024,
     DENSITY_DISSIPATION: 2,
